@@ -4,17 +4,17 @@ returns new array which contains only numeric values from arr.
 */
 
 var arr = ["a", 1, "b", 2, 1.5];
-
-function filterNumeric(array) {
-	var arrayNumeric = [];
-	for (var i = 0; i < array.length; i++) {
-		if (!isNaN(array[i]))
-			arrayNumeric.push(array[i]);
+function filterNumeric (arr) {
+	for (i = 0; i<arr.length; i++) {
+		if (isNaN(arr[i])) {
+			arr.splice(i,1);
+			i--;
+		}
 	}
-	return arrayNumeric;
 }
 
 window.addEventListener("load", function() {
 	console.log("Array: "+arr);
-	console.log("Array de valores numéricos: "+filterNumeric(arr));
+	filterNumeric(arr);
+	console.log("Array de valores numéricos: "+arr);
 });
